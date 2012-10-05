@@ -32,3 +32,12 @@
 <li>Shoesrb?</li>
 </ol>
 
+<h2>to add to readme</h2>
+<ol>
+<li>how to use</li>
+<li>Author info</li>
+<li>to do?</li>
+<li>Contributions</li>
+<li>Changelog</li>
+</ol>
+
