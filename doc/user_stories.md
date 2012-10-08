@@ -2,24 +2,26 @@
 <h2>As a User: Child</h2>
 <strong>in order to:</strong> learn basic music theory
 
-I want to: ask questions and get answers
+<strong>I want to:</strong> ask questions and get answers
 
 
-in order to: test my understanding
+<strong>in order to:</strong> test my understanding
 
-I want to: take quizzes and review results
-
-
-in order to: record my progress for my teacher/parent
-
-I want to: track my progress
+<strong>I want to:</strong> take quizzes and review results
 
 
-in order to:
+<strong>in order to:</strong> record my progress for my teacher/parent
 
-I want to:  
+<strong>I want to:</strong> track my progress
 
 
-in order to:
+<strong>in order to:</strong>
 
-I want to:
+<strong>I want to:</strong>  
+
+
+<strong>in order to:</strong>
+
+<strong>I want to:</strong>  
+
+
