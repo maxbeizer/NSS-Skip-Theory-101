@@ -1,6 +1,14 @@
 <h1>Skip Music Theory 101</h1>
 <h2>Overview</h2>
-<p>Here will lie an overview of the project, including: what, why, how.</p>
+<p>This project is the first "resume" project as part of the RoR module
+of the Nashville Software School. The project is to be written entirely
+in Ruby, using only the Standard Library.</p>
+
+<p>The idea behind this particular project is to create a program that
+incorporates basic Western Music theory for educational purposes.The 
+goal is for the user to gain a better fundamental understanding of
+music theory and for the author to gain better fundamental
+understanding of Ruby.</p>
 
 <h2>Feature List</h2>
 <ul>
