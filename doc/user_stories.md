@@ -38,5 +38,17 @@
 
 
 <h2>As a User: Music Teacher</h2>
-<strong>in order to:</strong> learn the material
-<strong>I want to:</strong> ask questions, get answers
+<strong>in order to:</strong> teach multiple students
+<strong>I want to:</strong> track progress of my students
+
+<strong>in order to:</strong> prepare students for quizzes
+<strong>I want to:</strong> manage the Q + A section
+
+<strong>in order to:</strong> assess student understanding
+<strong>I want to:</strong> quiz students and see results
+
+<strong>in order to:</strong> teach students of different levels
+<strong>I want to:</strong> keep it accessible and intuitive
+
+<strong>in order to:</strong> keep students from getting stuck
+<strong>I want to:</strong> make help accessible
