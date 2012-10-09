@@ -10,6 +10,14 @@ class ConstantsTest < Test::Unit::TestCase
     assert_equal true , FLATS.kind_of?(Array)
   end
 
+  def test_01c_SHARPS_end_of_array_is_nil
+    assert_equal nil , SHARPS[12]
+  end
+
+  def test_01c_FLATS_end_of_array_is_nil
+    assert_equal nil , FLATS[12]
+  end
+
   def test_02a_first_shot_at_a_chord
   	cmaj = "#{SHARPS[0]}, #{SHARPS[4]}, #{SHARPS[7]}"
   	assert_equal "C, E, G" , cmaj
@@ -27,6 +35,6 @@ class ConstantsTest < Test::Unit::TestCase
 
   def test_03b_scale_using_FLATS
   	db_scale = "#{FLATS[1]}, #{FLATS[3]}, #{FLATS[5]}, #{FLATS[6]}, #{FLATS[8]}, #{FLATS[10]}, #{FLATS[0]}"
-  	assert_equal "Db, Eb, F, Gb, Ab, Bb, C" , db_scale
+  	assert_equal "Db, Eb, F, Gb, Ab, Bb, C"	 , db_scale
   end
 end
