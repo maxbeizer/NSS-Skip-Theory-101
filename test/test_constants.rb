@@ -15,8 +15,18 @@ class ConstantsTest < Test::Unit::TestCase
   	assert_equal "C, E, G" , cmaj
   end
 
-   def test_02b_second_shot_at_a_chord
+  def test_02b_second_shot_at_a_chord
   	dmin = "#{SHARPS[2]}, #{SHARPS[5]}, #{SHARPS[9]}"
   	assert_equal "D, F, A" , dmin
+  end
+
+  def test_03a_first_shot_at_a_scale
+  	cmaj_scale = "#{SHARPS[0]}, #{SHARPS[2]}, #{SHARPS[4]}, #{SHARPS[5]}, #{SHARPS[7]}, #{SHARPS[9]}, #{SHARPS[11]}"
+  	assert_equal "C, D, E, F, G, A, B" , cmaj_scale
+  end
+
+  def test_03b_scale_using_FLATS
+  	db_scale = "#{FLATS[1]}, #{FLATS[3]}, #{FLATS[5]}, #{FLATS[6]}, #{FLATS[8]}, #{FLATS[10]}, #{FLATS[0]}"
+  	assert_equal "Db, Eb, F, Gb, Ab, Bb, C" , db_scale
   end
 end
