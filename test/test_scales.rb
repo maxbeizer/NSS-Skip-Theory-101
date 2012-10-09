@@ -2,8 +2,37 @@ require 'test/unit'
 require 'scales'
 
 class ScalesTest < Test::Unit::TestCase
+  def example_scale1
+   	Scales.new("cmaj")
+  end 
+
+  def example_scale2
+  	Scales.new("dmaj")
+  end
+
+  def example_scale3
+  	Scales.new("dbmaj")
+  end
+
   def test_01_scale_name_readable
-    example_scale = Scales.new("cmaj")
-    assert_equal "cmaj" , example_scale.scale_name
+    assert_equal "cmaj" , example_scale1.scale_name
+  end
+
+  def test_02_start_position
+    assert_equal "C" , example_scale1.start_position
+  end
+
+  def test_03a_start_position_not_C
+    assert_equal "D" , example_scale2.start_position
+  end
+
+  def test_03b_start_position_FLATS_db
+    assert_equal "Db" , example_scale3.start_position
+  end
+
+  def test_03c_start_position_DNE
+    assert_raise ArgumentError do 
+    	Scales.new("hmaj").start_position
+    end
   end
 end
