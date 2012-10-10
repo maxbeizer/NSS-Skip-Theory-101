@@ -11,7 +11,27 @@ class Scales
 #position, no?
   def start_position
  	@scale_name =~ /(\w|(\w[b#]))(m|cr)/i
- 	$1.capitalize
- 	#MAPPINGS($1)
+ 	#$1.capitalize
+ 	mappings = {
+ 		"c" 	=> SHARPS[0],
+ 		"c#"	=> SHARPS[1],
+ 		"db"	=> FLATS[1],
+ 		"d" 	=> SHARPS[2],
+ 		"d#"	=> SHARPS[3],
+ 		"eb"	=> FLATS[3],
+ 		"e" 	=> SHARPS[4],
+ 		"f" 	=> SHARPS[5],
+ 		"f#"	=> SHARPS[6],
+ 		"gb"	=> FLATS[6],
+ 		"g" 	=> SHARPS[7],
+ 		"g#"	=> SHARPS[8],
+ 		"ab"	=> FLATS[8],
+ 		"a" 	=> SHARPS[9],
+ 		"a#"	=> SHARPS[10],
+ 		"bb"	=> FLATS[10],
+ 		"b" 	=> SHARPS[11]
+ 	}
+ 	raise ArgumentError, "Invalid Input" if mappings[$1] == nil
+ 	mappings[$1]
   end
 end #class Scales
