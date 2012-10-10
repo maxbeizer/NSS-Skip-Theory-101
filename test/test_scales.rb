@@ -1,28 +1,6 @@
 require 'test/unit'
 require 'scales'
 
-class TestScale < Scales
-  def start_index
-    SHARPS.index(start_position)
-  end
-
-  def major_scale_sharps
-    major_scale = []
-    major_scale << start_position
-    major_scale << SHARPS[start_index+2]
-    major_scale << SHARPS[start_index+4]
-    major_scale << SHARPS[start_index+5]
-    major_scale << SHARPS[start_index+7]
-    major_scale << SHARPS[start_index+9]
-    major_scale << SHARPS[start_index+11]
-    major_scale
-  end
-
-  def get_notes
-    major_scale_sharps.join(" ")
-  end
-end
-
 class ScalesTest < Test::Unit::TestCase
   def example_scale1
    	Scales.new("cmaj")
@@ -34,6 +12,18 @@ class ScalesTest < Test::Unit::TestCase
 
   def example_scale3
   	Scales.new("dbmaj")
+  end
+
+  def example_scale4
+    Scales.new("bbmaj")
+  end
+  
+  def example_scale5
+    Scales.new("bbmin")
+  end
+
+  def example_scale6
+    Scales.new("f#min")
   end
 
   def test_01_scale_name_readable
@@ -58,7 +48,27 @@ class ScalesTest < Test::Unit::TestCase
     end
   end
 
-  def test_04_print_scale
-    assert_equal "C D E F G A B" , TestScale.new("cmaj").generate_scale
+  def test_04a_generate_scale
+    assert_equal "C D E F G A B" , example_scale1.generate_scale
+  end
+
+  def test_04b_generate_scale
+    assert_equal "D E F# G A B C#" , example_scale2.generate_scale
+  end
+
+  def test_04c_generate_scale
+    assert_equal "Db Eb F Gb Ab Bb C" , example_scale3.generate_scale
+  end
+
+  def test_04d_generate_scale
+    assert_equal "Bb C D Eb F G A" , example_scale4.generate_scale
+  end
+
+  def test_04e_generate_scale
+    assert_equal "Bb C Db Eb F Gb Ab" , example_scale5.generate_scale
+  end
+
+  def test_04f_generate_scale
+    assert_equal "F# G# A B C# D E" , example_scale6.generate_scale
   end
 end
