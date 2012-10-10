@@ -4,14 +4,13 @@ class Scales
   attr_reader :scale_name
   
   def initialize(scale_name)
-  	@scale_name = scale_name
+  	@scale_name = scale_name.downcase
   end
 
 #move this to its own super class since scales and chords will need start 
 #position, no?
   def start_position
- 	@scale_name =~ /(\w|(\w[b#]))(m|cr)/i
- 	#$1.capitalize
+ 	@scale_name =~ /(\w|(\w[b#]))(m|cr)/
  	mappings = {
  		"c" 	=> SHARPS[0],
  		"c#"	=> SHARPS[1],
