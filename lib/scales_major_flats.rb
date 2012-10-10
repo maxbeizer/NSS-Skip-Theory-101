@@ -16,4 +16,8 @@ class ScalesMajorFlats < ScalesMajor
   	major_scale << FLATS[start_index+11]
   	major_scale
   end
+
+  def get_notes
+    major_scale_flats.join(" ")
+  end
 end

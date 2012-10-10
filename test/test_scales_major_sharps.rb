@@ -38,4 +38,8 @@ class ScalesMajorSharpsTest < Test::Unit::TestCase
     assert_equal 0 , example_scale1.start_index
     assert_equal 2 , example_scale2.start_index
   end
+
+  def test_03_get_notes
+    assert_equal "B C# D# E F# G# A#" , example_scale4.get_notes
+  end
 end

@@ -38,4 +38,8 @@ class ScalesMajorFlatsTest < Test::Unit::TestCase
     assert_equal 3 , example_scale1.start_index
     assert_equal 1 , example_scale2.start_index
   end
+
+  def test_03_get_notes
+    assert_equal "Ab Bb C Db Eb F G" , example_scale4.get_notes
+  end
 end

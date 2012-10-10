@@ -16,4 +16,8 @@ class ScalesMajorSharps < ScalesMajor
   	major_scale << SHARPS[start_index+11]
   	major_scale
   end
+
+  def get_notes
+    major_scale_sharps.join(" ")
+  end
 end
