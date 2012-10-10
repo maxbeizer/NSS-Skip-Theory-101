@@ -50,6 +50,7 @@ forgiveness in their hearts...
 
 <h2>Change Log</h2>
 <ul>
+<li>Added Major/Minor Scales and Chords</li>
 <li>README version 0.1</li>
 </ul>
 
