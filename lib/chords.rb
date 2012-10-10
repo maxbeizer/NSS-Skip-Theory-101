@@ -11,5 +11,4 @@ class Chords
   def chord_start_position
     Scales.new(chord_name).scale_start_position
   end
-
 end
