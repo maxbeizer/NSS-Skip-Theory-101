@@ -45,4 +45,8 @@ class ChordsTest < Test::Unit::TestCase
   def test_03a_generate_chord1
     assert_equal "C E G" , example_chord1.generate_chord
   end
+
+  def test_03b_generate_chord2
+    assert_equal "D F# A" , example_chord2.generate_chord
+  end
 end
