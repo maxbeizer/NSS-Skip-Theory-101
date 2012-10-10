@@ -41,4 +41,8 @@ class ChordsTest < Test::Unit::TestCase
   def test_02c_scale_methods_accessible
     assert_equal "F#" , example_chord6.chord_start_position
   end
+
+  def test_03a_generate_chord1
+    assert_equal "C E G" , example_chord1.generate_chord
+  end
 end
