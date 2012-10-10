@@ -1,6 +1,6 @@
-require 'scales_major'
+require 'scales'
 
-class ScalesMajorFlats < ScalesMajor
+class ScalesMajorFlats < Scales
   def start_index
   	FLATS.index(start_position)
   end

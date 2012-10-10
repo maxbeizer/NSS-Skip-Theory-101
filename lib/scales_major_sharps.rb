@@ -1,6 +1,6 @@
-require 'scales_major'
+require 'scales'
 
-class ScalesMajorSharps < ScalesMajor
+class ScalesMajorSharps < Scales
   def start_index
   	SHARPS.index(start_position)
   end
