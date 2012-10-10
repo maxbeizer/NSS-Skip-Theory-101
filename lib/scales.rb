@@ -34,4 +34,4 @@ class Scales
  	raise ArgumentError, "Invalid Input" if mappings[$1] == nil
  	mappings[$1]
   end
-end #class Scales
+end
