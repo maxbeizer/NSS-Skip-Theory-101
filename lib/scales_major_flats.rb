@@ -5,7 +5,7 @@ class ScalesMajorFlats < ScalesMajor
   	FLATS.index(start_position)
   end
 
-  def build_major_scale_flats
+  def major_scale_flats
   	major_scale = []
   	major_scale << start_position
   	major_scale << FLATS[start_index+2]

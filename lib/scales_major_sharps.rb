@@ -5,7 +5,7 @@ class ScalesMajorSharps < ScalesMajor
   	SHARPS.index(start_position)
   end
 
-  def build_major_scale_sharps
+  def major_scale_sharps
   	major_scale = []
   	major_scale << start_position
   	major_scale << SHARPS[start_index+2]

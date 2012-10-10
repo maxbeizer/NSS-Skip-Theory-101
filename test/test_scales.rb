@@ -1,6 +1,11 @@
 require 'test/unit'
 require 'scales'
 
+class TestScale < Scales
+  def build_major_scale_flats
+    major_scale = [1, 2, 4 ,6]
+  end
+end
 class ScalesTest < Test::Unit::TestCase
   def example_scale1
    	Scales.new("cmaj")
@@ -34,5 +39,9 @@ class ScalesTest < Test::Unit::TestCase
     assert_raise ArgumentError do 
     	Scales.new("hmaj").start_position
     end
+  end
+
+  def test_04_print_scale
+    assert_equal "C, D, E, F, G, A, B" , TestScale.new("cmaj").generate_scale
   end
 end

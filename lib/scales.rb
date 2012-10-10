@@ -7,6 +7,10 @@ class Scales
   	@scale_name = scale_name.downcase
   end
 
+  def generate_scale
+  	
+  end
+
 #move this to its own super class since scales and chords will need start 
 #position, no?
   def start_position
