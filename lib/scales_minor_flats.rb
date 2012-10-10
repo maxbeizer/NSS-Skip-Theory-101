@@ -5,7 +5,7 @@ class ScalesMinorFlats < Scales
   	FLATS.index(start_position)
   end
 
-  def build_minor_scale_flats
+  def minor_scale_flats
   	major_scale = []
   	major_scale << start_position
   	major_scale << FLATS[start_index+2]
@@ -15,5 +15,9 @@ class ScalesMinorFlats < Scales
   	major_scale << FLATS[start_index+8]
   	major_scale << FLATS[start_index+10]
   	major_scale
+  end
+
+  def get_notes
+    minor_scale_flats.join(" ")
   end
 end

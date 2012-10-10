@@ -5,7 +5,7 @@ class ScalesMinorSharps < Scales
   	SHARPS.index(start_position)
   end
 
-  def build_minor_scale_sharps
+  def minor_scale_sharps
   	major_scale = []
   	major_scale << start_position
   	major_scale << SHARPS[start_index+2]
@@ -15,5 +15,9 @@ class ScalesMinorSharps < Scales
   	major_scale << SHARPS[start_index+8]
   	major_scale << SHARPS[start_index+10]
   	major_scale
+  end
+
+  def get_notes
+    minor_scale_sharps.join(" ")
   end
 end
