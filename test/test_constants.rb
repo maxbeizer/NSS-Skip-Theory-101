@@ -11,11 +11,11 @@ class ConstantsTest < Test::Unit::TestCase
   end
 
   def test_01c_SHARPS_end_of_array_is_nil
-    assert_equal nil , SHARPS[12]
+    assert_equal nil , SHARPS[24]
   end
 
   def test_01c_FLATS_end_of_array_is_nil
-    assert_equal nil , FLATS[12]
+    assert_equal nil , FLATS[24]
   end
 
   def test_02a_first_shot_at_a_chord
