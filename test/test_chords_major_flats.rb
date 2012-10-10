@@ -28,27 +28,27 @@ class ChordsMajorFlatsTest < Test::Unit::TestCase
 
 
   def test_03a_get_chord_for
-    assert_equal ["Db", "F", "Ab"] , example_chord1.get_chord_for
+    assert_equal ["Db", "F", "Ab"] , example_chord1.major_chord_sharps
   end
 
-  def test_03b_get_chord_for
-    assert_equal ["Db", "F", "Ab"] , example_chord2.get_chord_for
+  def test_03b_major_chord_sharps
+    assert_equal ["Db", "F", "Ab"] , example_chord2.major_chord_sharps
   end
 
-  def test_03c_get_chord_for
-    assert_equal ["Eb", "G", "Bb"] , example_chord3.get_chord_for
+  def test_03c_major_chord_sharps
+    assert_equal ["Eb", "G", "Bb"] , example_chord3.major_chord_sharps
   end
 
-  def test_03d_get_chord_for
-    assert_equal ["Ab", "C", "Eb"] , example_chord4.get_chord_for
+  def test_03d_major_chord_sharps
+    assert_equal ["Ab", "C", "Eb"] , example_chord4.major_chord_sharps
   end
 
-  def test_03e_get_chord_for
-    assert_equal ["Gb", "Bb", "Db"] , example_chord5.get_chord_for
+  def test_03e_major_chord_sharps
+    assert_equal ["Gb", "Bb", "Db"] , example_chord5.major_chord_sharps
   end
 
-  def test_03f_get_chord_for
-    assert_equal ["Bb", "D", "F"] , example_chord6.get_chord_for
+  def test_03f_major_chord_sharps
+    assert_equal ["Bb", "D", "F"] , example_chord6.major_chord_sharps
   end
 
   def test_04_get_notes

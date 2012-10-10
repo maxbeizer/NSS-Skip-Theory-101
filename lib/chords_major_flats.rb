@@ -5,7 +5,7 @@ class ChordsMajorFlats < Chords
   	Flats.index(chord_start_position)
   end
 
-  def get_chord_for
+  def major_chord_sharps
     chord_array = []
     scale_for_chord = Scales.get_scale_for(chord_name)
     chord_array << scale_for_chord.major_scale_flats[0]
@@ -14,6 +14,6 @@ class ChordsMajorFlats < Chords
   end
 
   def get_notes
-    get_chord_for.join(" ")
+    major_chord_sharps.join(" ")
   end
 end
