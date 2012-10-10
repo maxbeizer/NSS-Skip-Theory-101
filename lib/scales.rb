@@ -8,7 +8,7 @@ class Scales
   end
 
   def generate_scale
-  	
+  	get_notes
   end
 
 #move this to its own super class since scales and chords will need start 

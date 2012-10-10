@@ -2,10 +2,27 @@ require 'test/unit'
 require 'scales'
 
 class TestScale < Scales
-  def build_major_scale_flats
-    major_scale = [1, 2, 4 ,6]
+  def start_index
+    SHARPS.index(start_position)
+  end
+
+  def major_scale_sharps
+    major_scale = []
+    major_scale << start_position
+    major_scale << SHARPS[start_index+2]
+    major_scale << SHARPS[start_index+4]
+    major_scale << SHARPS[start_index+5]
+    major_scale << SHARPS[start_index+7]
+    major_scale << SHARPS[start_index+9]
+    major_scale << SHARPS[start_index+11]
+    major_scale
+  end
+
+  def get_notes
+    major_scale_sharps.join(" ")
   end
 end
+
 class ScalesTest < Test::Unit::TestCase
   def example_scale1
    	Scales.new("cmaj")
@@ -42,6 +59,6 @@ class ScalesTest < Test::Unit::TestCase
   end
 
   def test_04_print_scale
-    assert_equal "C, D, E, F, G, A, B" , TestScale.new("cmaj").generate_scale
+    assert_equal "C D E F G A B" , TestScale.new("cmaj").generate_scale
   end
 end
