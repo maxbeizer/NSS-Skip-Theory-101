@@ -18,7 +18,7 @@ class ScalesMinorFlatsTest < Test::Unit::TestCase
     ScalesMinorFlats.new("Bbmin")
   end
 
-  def test_01a_minor_scale_flats_from_start_position
+  def test_01a_minor_scale_flats_from_scale_start_position
     assert_equal "Db" , example_scale2.minor_scale_flats[0]
   end
 
@@ -34,7 +34,7 @@ class ScalesMinorFlatsTest < Test::Unit::TestCase
     assert_equal ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab"] , example_scale4.minor_scale_flats
   end
 
-  def test_02_start_position_index
+  def test_02_scale_start_position_index
     assert_equal 9 , example_scale1.start_index
     assert_equal 1 , example_scale2.start_index
   end

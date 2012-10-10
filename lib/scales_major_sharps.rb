@@ -2,12 +2,12 @@ require 'scales'
 
 class ScalesMajorSharps < Scales
   def start_index
-  	SHARPS.index(start_position)
+  	SHARPS.index(scale_start_position)
   end
 
   def major_scale_sharps
   	major_scale = []
-  	major_scale << start_position
+  	major_scale << scale_start_position
   	major_scale << SHARPS[start_index+2]
   	major_scale << SHARPS[start_index+4]
   	major_scale << SHARPS[start_index+5]

@@ -30,21 +30,21 @@ class ScalesTest < Test::Unit::TestCase
     assert_equal "cmaj" , example_scale1.scale_name
   end
 
-  def test_02_start_position
-    assert_equal "C" , example_scale1.start_position
+  def test_02_scale_start_position
+    assert_equal "C" , example_scale1.scale_start_position
   end
 
-  def test_03a_start_position_not_C
-    assert_equal "D" , example_scale2.start_position
+  def test_03a_scale_start_position_not_C
+    assert_equal "D" , example_scale2.scale_start_position
   end
 
-  def test_03b_start_position_FLATS_db
-    assert_equal "Db" , example_scale3.start_position
+  def test_03b_scale_start_position_FLATS_db
+    assert_equal "Db" , example_scale3.scale_start_position
   end
 
-  def test_03c_start_position_DNE
+  def test_03c_scale_start_position_DNE
     assert_raise ArgumentError do 
-    	Scales.new("hmaj").start_position
+    	Scales.new("hmaj").scale_start_position
     end
   end
 

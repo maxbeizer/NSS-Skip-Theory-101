@@ -23,10 +23,10 @@ class ScalesMinorTest < Test::Unit::TestCase
   end
 
   def test_01b_inherits_start_posotion
-    assert_equal "C" , example_scale1.start_position
+    assert_equal "C" , example_scale1.scale_start_position
   end
 
   def test_01c_inherits_start_posotion
-    assert_equal "Db" , example_scale3.start_position
+    assert_equal "Db" , example_scale3.scale_start_position
   end
 end

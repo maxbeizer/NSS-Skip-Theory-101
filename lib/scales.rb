@@ -28,7 +28,7 @@ class Scales
 
 #move this to its own super class since scales and chords will need start 
 #position, no?
-  def start_position
+  def scale_start_position
  	@scale_name =~ /(\w|(\w[b#]))(m|cr)/
  	mappings = {
  		"c" 	=> SHARPS[0],

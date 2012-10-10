@@ -18,7 +18,7 @@ class ScalesMinorsharpsTest < Test::Unit::TestCase
     ScalesMinorSharps.new("a#bmin")
   end
 
-  def test_01a_minor_scale_sharps_from_start_position
+  def test_01a_minor_scale_sharps_from_scale_start_position
     assert_equal "D#" , example_scale2.minor_scale_sharps[0]
   end
 
@@ -34,7 +34,7 @@ class ScalesMinorsharpsTest < Test::Unit::TestCase
     assert_equal ["B", "C#", "D", "E", "F#", "G", "A"] , example_scale4.minor_scale_sharps
   end
 
-  def test_02_start_position_index
+  def test_02_scale_start_position_index
     assert_equal 9 , example_scale1.start_index
     assert_equal 3 , example_scale2.start_index
   end
