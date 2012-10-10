@@ -49,4 +49,20 @@ class ChordsTest < Test::Unit::TestCase
   def test_03b_generate_chord2
     assert_equal "D F# A" , example_chord2.generate_chord
   end
+
+  def test_03c_generate_chord3
+    assert_equal "Db F Ab" , example_chord3.generate_chord
+  end
+
+  def test_03d_generate_chord4
+    assert_equal "Bb D F" , example_chord4.generate_chord
+  end
+
+  def test_03e_generate_chord5
+    assert_equal "Bb Db F" , example_chord5.generate_chord
+  end
+
+  def test_03f_generate_chord6
+    assert_equal "F# A C#" , example_chord6.generate_chord
+  end
 end
