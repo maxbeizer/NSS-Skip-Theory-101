@@ -18,20 +18,20 @@ class ScalesMinorFlatsTest < Test::Unit::TestCase
     ScalesMinorFlats.new("Bbmin")
   end
 
-  def test_01a_build_minor_scale_flats_from_start_position
-    assert_equal "Db" , example_scale2.build_minor_scale_flats[0]
+  def test_01a_minor_scale_flats_from_start_position
+    assert_equal "Db" , example_scale2.minor_scale_flats[0]
   end
 
-  def test_01b_build_minor_scale_flats
-    assert_equal ["A", "B", "C", "D", "E", "F", "G"] , example_scale1.build_minor_scale_flats
+  def test_01b_minor_scale_flats
+    assert_equal ["A", "B", "C", "D", "E", "F", "G"] , example_scale1.minor_scale_flats
   end
 
-  def test_01c_build_minor_scale_flats2
-    assert_equal ["Db", "Eb", "E", "Gb", "Ab", "A", "B"] , example_scale2.build_minor_scale_flats
+  def test_01c_minor_scale_flats2
+    assert_equal ["Db", "Eb", "E", "Gb", "Ab", "A", "B"] , example_scale2.minor_scale_flats
   end
 
-  def test_01d_build_minor_scale_flats3
-    assert_equal ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab"] , example_scale4.build_minor_scale_flats
+  def test_01d_minor_scale_flats3
+    assert_equal ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab"] , example_scale4.minor_scale_flats
   end
 
   def test_02_start_position_index
