@@ -18,20 +18,20 @@ class ScalesMajorFlatsTest < Test::Unit::TestCase
   	ScalesMajorFlats.new("Abmaj")
   end
 
-  def test_01a_build_major_scale_from_start_position
-    assert_equal "Db" , example_scale2.build_major_scale[0]
+  def test_01a_build_major_scale_flats_from_start_position
+    assert_equal "Db" , example_scale2.build_major_scale_flats[0]
   end
 
   def test_01b_build_major_scale_flats
-    assert_equal ["Eb", "F", "G", "Ab", "Bb", "C", "D"] , example_scale1.build_major_scale
+    assert_equal ["Eb", "F", "G", "Ab", "Bb", "C", "D"] , example_scale1.build_major_scale_flats
   end
 
   def test_01c_build_major_scale_flats2
-    assert_equal ["Db", "Eb", "F", "Gb", "Ab", "Bb", "C"] , example_scale2.build_major_scale
+    assert_equal ["Db", "Eb", "F", "Gb", "Ab", "Bb", "C"] , example_scale2.build_major_scale_flats
   end
 
   def test_01d_build_major_scale_flats3
-    assert_equal ["Ab", "Bb", "C", "Db", "Eb", "F", "G"] , example_scale4.build_major_scale
+    assert_equal ["Ab", "Bb", "C", "Db", "Eb", "F", "G"] , example_scale4.build_major_scale_flats
   end
 
   def test_02_start_position_index

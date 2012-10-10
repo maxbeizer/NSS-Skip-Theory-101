@@ -1,11 +1,11 @@
-require 'scales_major'
+require 'scales_minor'
 
-class ScalesMajorSharps < ScalesMajor
+class ScalesMinorSharps < ScalesMajor
   def start_index
   	SHARPS.index(start_position)
   end
 
-  def build_major_scale_sharps
+  def build_minor_scale
   	major_scale = []
   	major_scale << start_position
   	major_scale << SHARPS[start_index+2]

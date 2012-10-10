@@ -1,11 +1,11 @@
-require 'scales_major'
+require 'scales_minor'
 
-class ScalesMajorFlats < ScalesMajor
+class ScalesMinorFlats < ScalesMajor
   def start_index
   	FLATS.index(start_position)
   end
 
-  def build_major_scale_flats
+  def build_minor_scale
   	major_scale = []
   	major_scale << start_position
   	major_scale << FLATS[start_index+2]
