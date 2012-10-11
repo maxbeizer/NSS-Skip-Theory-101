@@ -1,4 +1,4 @@
-require 'scales'
+require_relative 'scales'
 
 class ScalesMajorSharps < Scales
   def start_index

@@ -1,9 +1,9 @@
-require_relative "chords"
-require_relative "chords_major_sharps"
+require_relative "scales"
+require_relative "scales_major_sharps"
 
-print "Enter a major chord: "
+print "Enter a major scale: "
 entry = gets.chomp
 
-answer = Chords.new(entry).generate_chord
+answer = Scales.new(entry).generate_scale
 
 puts answer
