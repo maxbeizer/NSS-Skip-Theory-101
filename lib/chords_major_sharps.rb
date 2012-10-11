@@ -7,7 +7,7 @@ class ChordsMajorSharps < Chords
 
   def major_chord_sharps
     chord_array = []
-    scale_for_chord = Scales.get_scale_for(chord_name)
+    scale_for_chord = ScaleFactory.get_scale_for(chord_name)
     chord_array << scale_for_chord.major_scale_sharps[0]
     chord_array << scale_for_chord.major_scale_sharps[2]
     chord_array << scale_for_chord.major_scale_sharps[4]
