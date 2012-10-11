@@ -11,11 +11,11 @@ class Learning
   def self.process
     print "What would you like to learn about? Chords or Scales?  "
     first_response = gets.downcase.chomp!
-    if first_response =~ /^chord/i
+    if first_response =~ /^chord/
       learning_chords
-    elsif first_response =~ /^scale/i
+    elsif first_response =~ /^scale/
     	learning_scales
-    elsif first_response =~ /(exit)|(^q)/i 
+    elsif first_response =~ /(exit)|(^q)/ 
       #exit the program
     else
       puts "I didn't quite understand that; try again please."
@@ -26,7 +26,7 @@ class Learning
   def self.rerun_or_exit
   	print "Would you like to try some more? Yes or No: "
   	rerun_response = gets.downcase.chomp!
-  	process if rerun_response == "yes"
+  	process if rerun_response =~ /^y/
   end
 
   def self.learning_chords
