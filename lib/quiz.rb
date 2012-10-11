@@ -20,7 +20,7 @@ class Quiz
     if first_response =~ /^chord/
       quiz_chords_options
     elsif first_response =~ /^scale/
-      quiz_scales
+      quiz_scales_options
     elsif first_response =~ /(exit)|(^q)/ 
       #exit the program
     else
@@ -97,20 +97,35 @@ class Quiz
     end
   end
 
-  def self.quiz_chords
-    print "Enter a chord: "
-    chord = gets.chomp
-    chord_answer = Chords.new(chord).generate_chord
-    puts chord_answer
-		rerun_or_exit(:process)	
+  def self.quiz_scales_options
+    print "Which would you like to get quizzed on: major scales or minor scales?  "
+    options_response = clean_gets
+    if options_response =~ /^major/
+      quiz_scales_major
+    elsif options_response =~ /^minor/
+      quiz_scales_minor
+    elsif options_response =~ /(exit)|(^q)/ 
+      exit
+    else
+      puts "I didn't quite understand that; try again please."
+      quiz_scales_options
+    end  	
   end
 
-  def self.quiz_scales
-		print "Enter a scale: "
-		scale = gets.chomp
-		scale_answer = Scales.new(scale).generate_scale
-		puts scale_answer
-		rerun_or_exit(:process)  	
+  def self.quiz_scales_major
+    quiz_scale_start = ALL_NOTES.sample
+    generated_quiz_scale = Scales.new(quiz_scale_start + "maj").generate_scale
+    print "Please enter a " + quiz_scale_start + "maj scale (case insensitive):  "
+    quiz_scale_answer = clean_gets
+    puts "You entererd: " + quiz_scale_answer
+    puts "The correct answer was: " + generated_quiz_scale
+    if quiz_scale_answer.downcase == generated_quiz_scale.downcase
+      puts "You got it correct. You rock my socks!"
+      wanna_try_more 
+    else
+      puts "You were so close!"
+      wanna_try_more     
+    end
   end
   Quiz.process
 end
