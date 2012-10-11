@@ -1,4 +1,4 @@
-require 'chords'
+require_relative 'chords'
 
 class ChordsMinorFlats < Chords
   def start_index
