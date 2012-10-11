@@ -12,7 +12,7 @@ class Quiz
     print "What would you like to get quizzed on? Chords or Scales?  "
     first_response = gets.downcase.chomp!
     if first_response =~ /^chord/
-      quiz_chords
+      quiz_chords_options
     elsif first_response =~ /^scale/
       quiz_scales
     elsif first_response =~ /(exit)|(^q)/ 
@@ -27,6 +27,25 @@ class Quiz
   	print "Would you like to try some more? Yes or No: "
   	rerun_response = gets.downcase.chomp!
   	Quiz.process if rerun_response =~ /^y/
+  end
+
+  def self.quiz_chords_options
+    print "Which would you like to get quizzed on: major chords or minor chords?  "
+    options_response = gets.downcase.chomp!
+    if options_response =~ /^major/
+      quiz_chords_major
+    elsif options_response =~ /^minor/
+      quiz_chords_minor
+    elsif options_response =~ /(exit)|(^q)/ 
+      #exit the program
+    else
+      puts "I didn't quite understand that; try again please."
+      quiz_chords_options
+    end
+  end
+
+  def self.quiz_chords_major
+    
   end
 
   def self.quiz_chords
