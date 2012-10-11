@@ -8,9 +8,13 @@ require_relative "chords_major_flats"
 require_relative "chords_minor_flats"
 
 class Quiz
+  def self.clean_gets
+    gets.downcase.chomp
+  end
+
   def self.process
     print "What would you like to get quizzed on? Chords or Scales?  "
-    first_response = gets.downcase.chomp!
+    first_response = clean_gets
     if first_response =~ /^chord/
       quiz_chords_options
     elsif first_response =~ /^scale/
@@ -25,7 +29,7 @@ class Quiz
 
   def self.rerun_or_exit(which_part)
   	print "Would you like to try some more? Yes or No: "
-  	rerun_response = gets.downcase.chomp!
+  	rerun_response = clean_gets
   	Quiz.send(which_part) if rerun_response =~ /^y/
   end
 
@@ -35,7 +39,7 @@ class Quiz
 
   def self.quiz_chords_options
     print "Which would you like to get quizzed on: major chords or minor chords?  "
-    options_response = gets.downcase.chomp!
+    options_response = clean_gets
     if options_response =~ /^major/
       quiz_chords_major
     elsif options_response =~ /^minor/
@@ -52,13 +56,13 @@ class Quiz
     quiz_chord_start = SHARPS.sample
     generated_quiz_chord = Chords.new(quiz_chord_start + "maj").generate_chord
     print "Please enter a " + quiz_chord_start + "maj chord (case insensitive):  "
-    quiz_chord_answer = gets.downcase.chomp!
+    quiz_chord_answer = clean_gets
     puts "You entererd: " + quiz_chord_answer
     puts "The correct answer was: " + generated_quiz_chord
     if quiz_chord_answer.upcase == generated_quiz_chord
       puts "You got it correct. You rock my socks!"
       print "want to try more? "
-      try_more_response = gets.downcase.chomp!
+      try_more_response = clean_gets
       if try_more_response =~ /^y/
         rerun_or_exit(:quiz_chords_major)
       elsif try_more_response =~ /^n/
@@ -71,7 +75,7 @@ class Quiz
     else
       puts "You were so close!"
       print "want to try more? "
-      try_more_response = gets.downcase.chomp!
+      try_more_response = clean_gets
       if try_more_response =~ /^y/
         rerun_or_exit(:quiz_chords_major)
       elsif try_more_response =~ /^n/
