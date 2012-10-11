@@ -34,9 +34,18 @@ class Quiz
   	rerun_response = clean_gets
   	if rerun_response =~ /^y/
       #stay here or return to mmain quiz menu
-        #Quiz.send(which_part) 
+      print "Would you like to stay here or return to quiz menu?  "
+      stay_or_return_response = clean_gets
+      if stay_or_return_response =~ /(stay)|(here)/  
+        Quiz.send(which_part)
+      elsif stay_or_return_response =~ /(exit)|(^q)/ 
+      #exit the program
+      else
+        process
+      end 
     else
-      #exit  
+      #exit
+    end  
   end
 
 
