@@ -6,7 +6,7 @@ require_relative "chords_major_sharps"
 require_relative "chords_minor_sharps"
 require_relative "chords_major_flats"
 require_relative "chords_minor_flats"
-    
+
 ALL_NOTES = SHARPS + FLATS
 
 class Quiz
@@ -32,23 +32,13 @@ class Quiz
   def self.rerun_or_exit(which_part)
   	print "Would you like to try some more? Yes or No: "
   	rerun_response = clean_gets
-  	Quiz.send(which_part) if rerun_response =~ /^y/
+  	if rerun_response =~ /^y/
+      #stay here or return to mmain quiz menu
+        #Quiz.send(which_part) 
+    else
+      #exit  
   end
 
-  def self.wanna_try_more
-#### will have to revisit where each response goes to, I think
-    print "want to try more? "
-    try_more_response = clean_gets
-    if try_more_response =~ /^y/
-      quiz_chords_options
-    elsif try_more_response =~ /^n/
-      Quiz.process
-    elsif try_more_response =~ /\s/
-      # if response is just white space then must ask again
-    else
-      exit
-    end 
-  end
 
   def self.quiz_chords_options
     print "Which would you like to get quizzed on: major chords or minor chords?  "
@@ -74,10 +64,10 @@ class Quiz
     puts "The correct answer was: " + generated_quiz_chord
     if quiz_chord_answer.downcase == generated_quiz_chord.downcase
       puts "You got it correct. You rock my socks!"
-      wanna_try_more 
+      rerun_or_exit(:quiz_chords_options) 
     else
       puts "You were so close!"
-      wanna_try_more     
+      rerun_or_exit(:quiz_chords_options)      
     end
   end
 
@@ -90,10 +80,10 @@ class Quiz
     puts "The correct answer was: " + generated_quiz_chord
     if quiz_chord_answer.downcase == generated_quiz_chord.downcase
       puts "You got it correct. You rock my socks!"
-      wanna_try_more 
+      rerun_or_exit(:quiz_chords_options)  
     else
       puts "You were so close!"
-      wanna_try_more     
+      rerun_or_exit(:quiz_chords_options)      
     end
   end
 
@@ -121,10 +111,10 @@ class Quiz
     puts "The correct answer was: " + generated_quiz_scale
     if quiz_scale_answer.downcase == generated_quiz_scale.downcase
       puts "You got it correct. You rock my socks!"
-      wanna_try_more 
+      rerun_or_exit(:quiz_scales_options) 
     else
       puts "You were so close!"
-      wanna_try_more     
+      rerun_or_exit(:quiz_scales_options)     
     end
   end
 
@@ -137,10 +127,10 @@ class Quiz
     puts "The correct answer was: " + generated_quiz_scale
     if quiz_scale_answer.downcase == generated_quiz_scale.downcase
       puts "You got it correct. You rock my socks!"
-      wanna_try_more 
+      rerun_or_exit(:quiz_scales_options) 
     else
       puts "You were so close!"
-      wanna_try_more     
+      rerun_or_exit(:quiz_scales_options)     
     end
   end
   Quiz.process
