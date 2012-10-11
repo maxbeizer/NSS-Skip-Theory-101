@@ -127,5 +127,21 @@ class Quiz
       wanna_try_more     
     end
   end
+
+  def self.quiz_scales_minor
+    quiz_scale_start = ALL_NOTES.sample
+    generated_quiz_scale = Scales.new(quiz_scale_start + "min").generate_scale
+    print "Please enter a " + quiz_scale_start + "min scale (case insensitive):  "
+    quiz_scale_answer = clean_gets
+    puts "You entererd: " + quiz_scale_answer
+    puts "The correct answer was: " + generated_quiz_scale
+    if quiz_scale_answer.downcase == generated_quiz_scale .downcase
+      puts "You got it correct. You rock my socks!"
+      wanna_try_more 
+    else
+      puts "You were so close!"
+      wanna_try_more     
+    end
+  end
   Quiz.process
 end
