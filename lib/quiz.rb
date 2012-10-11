@@ -36,6 +36,7 @@ class Quiz
   end
 
   def self.wanna_try_more
+#### will have to revisit where each response goes to, I think
     print "want to try more? "
     try_more_response = clean_gets
     if try_more_response =~ /^y/
@@ -71,7 +72,23 @@ class Quiz
     quiz_chord_answer = clean_gets
     puts "You entererd: " + quiz_chord_answer
     puts "The correct answer was: " + generated_quiz_chord
-    if quiz_chord_answer.upcase == generated_quiz_chord
+    if quiz_chord_answer.downcase == generated_quiz_chord.downcase
+      puts "You got it correct. You rock my socks!"
+      wanna_try_more 
+    else
+      puts "You were so close!"
+      wanna_try_more     
+    end
+  end
+
+  def self.quiz_chords_minor
+    quiz_chord_start = ALL_NOTES.sample
+    generated_quiz_chord = Chords.new(quiz_chord_start + "min").generate_chord
+    print "Please enter a " + quiz_chord_start + "min chord (case insensitive):  "
+    quiz_chord_answer = clean_gets
+    puts "You entererd: " + quiz_chord_answer
+    puts "The correct answer was: " + generated_quiz_chord
+    if quiz_chord_answer.downcase == generated_quiz_chord.downcase
       puts "You got it correct. You rock my socks!"
       wanna_try_more 
     else
