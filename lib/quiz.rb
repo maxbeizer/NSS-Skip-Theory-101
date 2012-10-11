@@ -135,7 +135,7 @@ class Quiz
     quiz_scale_answer = clean_gets
     puts "You entererd: " + quiz_scale_answer
     puts "The correct answer was: " + generated_quiz_scale
-    if quiz_scale_answer.downcase == generated_quiz_scale .downcase
+    if quiz_scale_answer.downcase == generated_quiz_scale.downcase
       puts "You got it correct. You rock my socks!"
       wanna_try_more 
     else
