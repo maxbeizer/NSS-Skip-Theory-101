@@ -1,22 +1,10 @@
-require_relative "scales_major_sharps"
-require_relative "scales_minor_sharps"
-require_relative "scales_major_flats"
-require_relative "scales_minor_flats"
-require_relative "chords_major_sharps"
-require_relative "chords_minor_sharps"
-require_relative "chords_major_flats"
-require_relative "chords_minor_flats"
+print "What would you like to learn about? Chords or Scales?  "
+first_response = gets.downcase.chomp!
 
-print "Enter a scale: "
-scale = gets.chomp
-
-scale_answer = Scales.new(scale).generate_scale
-
-puts scale_answer
-
-print "Enter a chord: "
-chord = gets.chomp
-
-chord_answer = Chords.new(chord).generate_chord
-
-puts chord_answer
+if first_response == "chords"
+  #open chords learning file
+elsif first_response == "scales"
+  #opend scales learning file
+else
+  puts "Invalid input, stoop. Run the program again."
+end
