@@ -26,7 +26,7 @@ class Quiz
   def self.rerun_or_exit(which_part)
   	print "Would you like to try some more? Yes or No: "
   	rerun_response = gets.downcase.chomp!
-  	Quiz.which_part if rerun_response =~ /^y/
+  	Quiz.send(which_part) if rerun_response =~ /^y/
   end
 
   def self.wanna_try_more
@@ -60,9 +60,9 @@ class Quiz
       print "want to try more? "
       try_more_response = gets.downcase.chomp!
       if try_more_response =~ /^y/
-        rerun_or_exit(quiz_chords_major)
+        rerun_or_exit(:quiz_chords_major)
       elsif try_more_response =~ /^n/
-        rerun_or_exit(process)
+        Quiz.process
       elsif try_more_response =~ /\s/
         # if response is just white space then must ask again
       else
@@ -72,7 +72,16 @@ class Quiz
       puts "You were so close!"
       print "want to try more? "
       try_more_response = gets.downcase.chomp!
-      rerun_or_exit(quiz_chords_major) if try_more_response =~ /^y/    end
+      if try_more_response =~ /^y/
+        rerun_or_exit(:quiz_chords_major)
+      elsif try_more_response =~ /^n/
+        Quiz.process
+      elsif try_more_response =~ /\s/
+        # if response is just white space then must ask again
+      else
+        exit
+      end     
+    end
   end
 
   def self.quiz_chords
@@ -80,7 +89,7 @@ class Quiz
     chord = gets.chomp
     chord_answer = Chords.new(chord).generate_chord
     puts chord_answer
-		rerun_or_exit(process)	
+		rerun_or_exit(:process)	
   end
 
   def self.quiz_scales
@@ -88,7 +97,7 @@ class Quiz
 		scale = gets.chomp
 		scale_answer = Scales.new(scale).generate_scale
 		puts scale_answer
-		rerun_or_exit(process)  	
+		rerun_or_exit(:process)  	
   end
   Quiz.process
 end
