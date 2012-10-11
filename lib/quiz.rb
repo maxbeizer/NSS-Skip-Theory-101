@@ -6,6 +6,8 @@ require_relative "chords_major_sharps"
 require_relative "chords_minor_sharps"
 require_relative "chords_major_flats"
 require_relative "chords_minor_flats"
+    
+ALL_NOTES = SHARPS + FLATS
 
 class Quiz
   def self.clean_gets
@@ -34,7 +36,17 @@ class Quiz
   end
 
   def self.wanna_try_more
-
+    print "want to try more? "
+    try_more_response = clean_gets
+    if try_more_response =~ /^y/
+      quiz_chords_options
+    elsif try_more_response =~ /^n/
+      Quiz.process
+    elsif try_more_response =~ /\s/
+      # if response is just white space then must ask again
+    else
+      exit
+    end 
   end
 
   def self.quiz_chords_options
@@ -53,7 +65,7 @@ class Quiz
   end
 
   def self.quiz_chords_major
-    quiz_chord_start = SHARPS.sample
+    quiz_chord_start = ALL_NOTES.sample
     generated_quiz_chord = Chords.new(quiz_chord_start + "maj").generate_chord
     print "Please enter a " + quiz_chord_start + "maj chord (case insensitive):  "
     quiz_chord_answer = clean_gets
@@ -61,30 +73,10 @@ class Quiz
     puts "The correct answer was: " + generated_quiz_chord
     if quiz_chord_answer.upcase == generated_quiz_chord
       puts "You got it correct. You rock my socks!"
-      print "want to try more? "
-      try_more_response = clean_gets
-      if try_more_response =~ /^y/
-        rerun_or_exit(:quiz_chords_major)
-      elsif try_more_response =~ /^n/
-        Quiz.process
-      elsif try_more_response =~ /\s/
-        # if response is just white space then must ask again
-      else
-        exit
-      end 
+      wanna_try_more 
     else
       puts "You were so close!"
-      print "want to try more? "
-      try_more_response = clean_gets
-      if try_more_response =~ /^y/
-        rerun_or_exit(:quiz_chords_major)
-      elsif try_more_response =~ /^n/
-        Quiz.process
-      elsif try_more_response =~ /\s/
-        # if response is just white space then must ask again
-      else
-        exit
-      end     
+      wanna_try_more     
     end
   end
 
