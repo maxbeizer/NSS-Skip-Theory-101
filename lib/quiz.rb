@@ -30,6 +30,17 @@ class Quiz
     puts "Your percentage thus far is " + passed_percentage.to_s + "%."
   end
 
+  def self.generate_pass
+    increment_tests_passed
+    increment_tests_attempted
+    print_progress
+  end
+
+  def self.generate_fail
+    increment_tests_attempted
+    print_progress
+  end
+
   def self.clean_gets
     gets.downcase.chomp
   end
@@ -92,14 +103,11 @@ class Quiz
     puts "The correct answer was: " + generated_quiz_chord
     if quiz_chord_answer.downcase == generated_quiz_chord.downcase
       puts "You got it correct. You rock my socks!"
-      increment_tests_passed
-      increment_tests_attempted
-      print_progress
+      generate_pass
       rerun_or_exit(:quiz_chords_options) 
     else
       puts "You were so close!"
-      increment_tests_attempted
-      print_progress
+      generate_fail
       rerun_or_exit(:quiz_chords_options)      
     end
   end
@@ -113,14 +121,11 @@ class Quiz
     puts "The correct answer was: " + generated_quiz_chord
     if quiz_chord_answer.downcase == generated_quiz_chord.downcase
       puts "You got it correct. You rock my socks!"
-      increment_tests_passed
-      increment_tests_attempted
-      print_progress
+      generate_pass
       rerun_or_exit(:quiz_chords_options)  
     else
       puts "You were so close!"
-      increment_tests_attempted
-      print_progress
+      generate_fail
       rerun_or_exit(:quiz_chords_options)      
     end
   end
@@ -149,14 +154,11 @@ class Quiz
     puts "The correct answer was: " + generated_quiz_scale
     if quiz_scale_answer.downcase == generated_quiz_scale.downcase
       puts "You got it correct. You rock my socks!"
-      increment_tests_passed
-      increment_tests_attempted
-      print_progress
+      generate_pass
       rerun_or_exit(:quiz_scales_options) 
     else
       puts "You were so close!"
-      increment_tests_attempted
-      print_progress
+      generate_fail
       rerun_or_exit(:quiz_scales_options)     
     end
   end
@@ -170,14 +172,11 @@ class Quiz
     puts "The correct answer was: " + generated_quiz_scale
     if quiz_scale_answer.downcase == generated_quiz_scale.downcase
       puts "You got it correct. You rock my socks!"
-      increment_tests_passed
-      increment_tests_attempted
-      print_progress
+      generate_pass
       rerun_or_exit(:quiz_scales_options) 
     else
       puts "You were so close!"
-      increment_tests_attempted
-      print_progress
+      generate_fail
       rerun_or_exit(:quiz_scales_options)     
     end
   end
