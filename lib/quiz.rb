@@ -10,8 +10,17 @@ require_relative "chords_minor_flats"
 ALL_NOTES = SHARPS + FLATS
 
 class Quiz
+  @@path_array = SHARPS + FLATS
   @@tests_attempted = 0.0
   @@tests_passed = 0.0
+
+  def self.move_down_the_path(index)
+    @@path_array.slice!(index)
+  end
+
+  def self.display_path_progress
+    puts "You have " + @@path_array.length.to_s + " more steps to take down the path"
+  end
 
   def self.increment_tests_attempted
     @@tests_attempted += 1
@@ -95,7 +104,8 @@ class Quiz
   end
 
   def self.quiz_chords_major
-    quiz_chord_start = ALL_NOTES.sample
+    quiz_chord_start = @@path_array.sample
+    index = @@path_array.index(quiz_chord_start)
     generated_quiz_chord = Chords.new(quiz_chord_start + "maj").generate_chord
     print "Please enter a " + quiz_chord_start + "maj chord (case insensitive):  "
     quiz_chord_answer = clean_gets
@@ -104,16 +114,20 @@ class Quiz
     if quiz_chord_answer.downcase == generated_quiz_chord.downcase
       puts "You got it correct. You rock my socks!"
       generate_pass
+      move_down_the_path(index)
+      display_path_progress
       rerun_or_exit(:quiz_chords_options) 
     else
       puts "You were so close!"
       generate_fail
+      display_path_progress
       rerun_or_exit(:quiz_chords_options)      
     end
   end
 
   def self.quiz_chords_minor
     quiz_chord_start = ALL_NOTES.sample
+    index = @@path_array.index(quiz_chord_start)
     generated_quiz_chord = Chords.new(quiz_chord_start + "min").generate_chord
     print "Please enter a " + quiz_chord_start + "min chord (case insensitive):  "
     quiz_chord_answer = clean_gets
@@ -122,10 +136,13 @@ class Quiz
     if quiz_chord_answer.downcase == generated_quiz_chord.downcase
       puts "You got it correct. You rock my socks!"
       generate_pass
+      move_down_the_path(index)
+      display_path_progress
       rerun_or_exit(:quiz_chords_options)  
     else
       puts "You were so close!"
       generate_fail
+      display_path_progress
       rerun_or_exit(:quiz_chords_options)      
     end
   end
