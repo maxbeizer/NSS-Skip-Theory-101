@@ -48,7 +48,6 @@ class Quiz
     end  
   end
 
-
   def self.quiz_chords_options
     print "Which would you like to get quizzed on: major chords or minor chords?  "
     options_response = clean_gets
