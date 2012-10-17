@@ -17,7 +17,7 @@ class Quiz
   end
 
   def display_path_progress
-    puts "You have " + @@path_array.length.to_s + " more steps to take down the path"
+    puts "You have " + @@path_array.length.inspect + " more steps to take down the path -- go on, grasshopper."
   end
 
   def increment_tests_attempted
@@ -33,8 +33,8 @@ class Quiz
   end
 
   def print_progress
-    puts "You have passed " + @@tests_passed.to_i.to_s + " times out of " + @@tests_attempted.to_i.to_s + " tries"
-    puts "Your percentage thus far is " + passed_percentage.to_s + "%."
+    puts "You have passed " + @@tests_passed.to_i.inspect + " times out of " + @@tests_attempted.to_i.inspect + " tries."
+    puts "Your percentage thus far is " + passed_percentage.inspect + "%."
   end
 
   def generate_pass
