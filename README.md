@@ -14,7 +14,6 @@ understanding of Ruby.</p>
 <ul>
 <li>Enter a chord name and get its notes.</li>
 <li>Enter a scale and get its notes.</li>
-<li>Get a list of the circle of fifths.</li>
 <li>Quizzes on all above topics.</li>
 </ul>
 
