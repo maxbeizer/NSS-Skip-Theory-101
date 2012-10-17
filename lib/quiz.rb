@@ -53,7 +53,7 @@ class Quiz
   end
 
   def process
-    print "What would you like to get quizzed on? Chords or Scales?  "
+    print "Which would you like to get quizzed on? Chords or Scales?  "
     chords_or_scales = clean_gets
     print "Major or Minor?  "
     major_or_minor = clean_gets[0 , 3] #"maj" or "min"
@@ -68,30 +68,28 @@ class Quiz
     end
   end
 
-  def rerun_or_exit(which_part)
+  def rerun_or_exit
   	print "Would you like to try some more? Yes or No: "
   	rerun_response = clean_gets
   	if rerun_response =~ /^y/
-      #stay here or return to mmain quiz menu
-      print "Would you like to stay here or return to quiz menu?  "
-      stay_or_return_response = clean_gets
-      if stay_or_return_response =~ /(stay)|(here)/  
-        self.send(which_part)
-      elsif stay_or_return_response =~ /(exit)|(^q)/ 
-      #exit the program
-      else
-        process
-      end 
+      process
     else
       #exit
     end  
   end
 
-  def quiz_chords(type)
+  def quiz_run(chords_or_scales, major_or_minor)
+    
+  end
+
+
+
+
+  def quiz_chords(major_or_minor)
     quiz_chord_start = @@path_array.sample
     index = @@path_array.index(quiz_chord_start)
-    generated_quiz_chord = Chords.new(quiz_chord_start + type).generate_chord
-    print "Please enter a " + quiz_chord_start + type + " chord (case insensitive):  "
+    generated_quiz_chord = Chords.new(quiz_chord_start + major_or_minor).generate_chord
+    print "Please enter a " + quiz_chord_start + major_or_minor + " chord (case insensitive):  "
     quiz_chord_answer = clean_gets
     puts "You entererd: " + quiz_chord_answer
     puts "The correct answer was: " + generated_quiz_chord
@@ -100,20 +98,20 @@ class Quiz
       generate_pass
       move_down_the_path(index)
       display_path_progress
-      rerun_or_exit(:quiz_chords_options) 
+      rerun_or_exit 
     else
       puts "You were so close!"
       generate_fail
       display_path_progress
-      rerun_or_exit(:quiz_chords_options)      
+      rerun_or_exit      
     end
   end
 
-  def quiz_scales(type)
+  def quiz_scales(major_or_minor)
     quiz_scale_start = @@path_array.sample
     index = @@path_array.index(quiz_scale_start)
-    generated_quiz_scale = Scales.new(quiz_scale_start + type).generate_scale
-    print "Please enter a " + quiz_scale_start + type + " scale (case insensitive):  "
+    generated_quiz_scale = Scales.new(quiz_scale_start + major_or_minor).generate_scale
+    print "Please enter a " + quiz_scale_start + major_or_minor + " scale (case insensitive):  "
     quiz_scale_answer = clean_gets
     puts "You entererd: " + quiz_scale_answer
     puts "The correct answer was: " + generated_quiz_scale
@@ -122,12 +120,12 @@ class Quiz
       generate_pass
       move_down_the_path(index)
       display_path_progress
-      rerun_or_exit(:quiz_scales_options) 
+      rerun_or_exit 
     else
       puts "You were so close!"
       generate_fail
       display_path_progress
-      rerun_or_exit(:quiz_scales_options)     
+      rerun_or_exit     
     end
   end
 
