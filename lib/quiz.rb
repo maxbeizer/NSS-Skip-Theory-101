@@ -61,11 +61,7 @@ class Quiz
   end
 
   def quiz_for(chords_or_scales, major_or_minor)
-    if chords_or_scales =~ /^chord/
-      quiz_chords(major_or_minor)
-    else
-      quiz_scales(major_or_minor)
-    end
+    quiz_run(chords_or_scales, major_or_minor)
   end
 
   def rerun_or_exit
@@ -75,58 +71,44 @@ class Quiz
       process
     else
       #exit
-    end  
+    end
   end
 
   def quiz_run(chords_or_scales, major_or_minor)
-    
-  end
-
-
-
-
-  def quiz_chords(major_or_minor)
-    quiz_chord_start = @@path_array.sample
-    index = @@path_array.index(quiz_chord_start)
-    generated_quiz_chord = Chords.new(quiz_chord_start + major_or_minor).generate_chord
-    print "Please enter a " + quiz_chord_start + major_or_minor + " chord (case insensitive):  "
-    quiz_chord_answer = clean_gets
-    puts "You entererd: " + quiz_chord_answer
-    puts "The correct answer was: " + generated_quiz_chord
-    if quiz_chord_answer.downcase == generated_quiz_chord.downcase
+    start_note = @@path_array.sample
+    index = @@path_array.index(start_note)
+    if chords_or_scales =~ /^chord/
+      quiz_chords(major_or_minor)
+    else
+      quiz_scales(major_or_minor)
+    end
+    user_answer = clean_gets
+    puts "You entererd: " + user_answer
+    puts "The correct answer was: " + @generated_answer
+    if user_answer.downcase == @generated_answer.downcase
       puts "You got it correct. You rock my socks!"
       generate_pass
       move_down_the_path(index)
       display_path_progress
-      rerun_or_exit 
+      rerun_or_exit
     else
       puts "You were so close!"
       generate_fail
       display_path_progress
-      rerun_or_exit      
+      rerun_or_exit
     end
+  end
+
+  def quiz_chords(major_or_minor)
+    quiz_chord_start = @@path_array.sample
+    @generated_answer = Chords.new(quiz_chord_start + major_or_minor).generate_chord
+    print "Please enter a " + quiz_chord_start + major_or_minor + " chord (case insensitive):  "
   end
 
   def quiz_scales(major_or_minor)
     quiz_scale_start = @@path_array.sample
-    index = @@path_array.index(quiz_scale_start)
-    generated_quiz_scale = Scales.new(quiz_scale_start + major_or_minor).generate_scale
+    @generated_answer = Scales.new(quiz_scale_start + major_or_minor).generate_scale
     print "Please enter a " + quiz_scale_start + major_or_minor + " scale (case insensitive):  "
-    quiz_scale_answer = clean_gets
-    puts "You entererd: " + quiz_scale_answer
-    puts "The correct answer was: " + generated_quiz_scale
-    if quiz_scale_answer.downcase == generated_quiz_scale.downcase
-      puts "You got it correct. You rock my socks!"
-      generate_pass
-      move_down_the_path(index)
-      display_path_progress
-      rerun_or_exit 
-    else
-      puts "You were so close!"
-      generate_fail
-      display_path_progress
-      rerun_or_exit     
-    end
   end
 
   Quiz.new().process
