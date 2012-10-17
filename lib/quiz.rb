@@ -7,8 +7,6 @@ require_relative "chords_minor_sharps"
 require_relative "chords_major_flats"
 require_relative "chords_minor_flats"
 
-ALL_NOTES = SHARPS + FLATS
-
 class Quiz
   @@path_array = SHARPS + FLATS
   @@tests_attempted = 0.0
@@ -56,16 +54,17 @@ class Quiz
 
   def process
     print "What would you like to get quizzed on? Chords or Scales?  "
-    first_response = clean_gets
-    if first_response =~ /^chord/
-      quiz_chords_options
-    elsif first_response =~ /^scale/
-      quiz_scales_options
-    elsif first_response =~ /(exit)|(^q)/ 
-      #exit the program
+    chords_or_scales = clean_gets
+    print "Major or Minor?  "
+    major_or_minor = clean_gets[0 , 3] #"maj" or "min"
+    quiz_for(chords_or_scales, major_or_minor)
+  end
+
+  def quiz_for(chords_or_scales, major_or_minor)
+    if chords_or_scales =~ /^chord/
+      quiz_chords(major_or_minor)
     else
-      puts "I didn't quite understand that; try again please."
-      process
+      quiz_scales(major_or_minor)
     end
   end
 
@@ -88,21 +87,6 @@ class Quiz
     end  
   end
 
-  def quiz_chords_options
-    print "Which would you like to get quizzed on: major chords or minor chords?  "
-    options_response = clean_gets
-    if options_response =~ /^major/
-      quiz_chords("maj")
-    elsif options_response =~ /^minor/
-      quiz_chords("min")
-    elsif options_response =~ /(exit)|(^q)/ 
-      exit
-    else
-      puts "I didn't quite understand that; try again please."
-      quiz_chords_options
-    end
-  end
-
   def quiz_chords(type)
     quiz_chord_start = @@path_array.sample
     index = @@path_array.index(quiz_chord_start)
@@ -123,36 +107,6 @@ class Quiz
       display_path_progress
       rerun_or_exit(:quiz_chords_options)      
     end
-  end
-
-  def quiz_options(scales_or_chords)
-   print "Which would you like to get quizzed on: major " + scales_or_chords + " or minor " + scales_or_chords + "?  "
-    options_response = clean_gets
-    if options_response =~ /^major/
-      quiz_scales("maj")
-    elsif options_response =~ /^minor/
-      quiz_scales("min")
-    elsif options_response =~ /(exit)|(^q)/ 
-      exit
-    else
-      puts "I didn't quite understand that; try again please."
-      quiz_options(scales_or_chords)
-    end  
-  end
-
-  def quiz_scales_options
-    print "Which would you like to get quizzed on: major scales or minor scales?  "
-    options_response = clean_gets
-    if options_response =~ /^major/
-      quiz_scales("maj")
-    elsif options_response =~ /^minor/
-      quiz_scales("min")
-    elsif options_response =~ /(exit)|(^q)/ 
-      exit
-    else
-      puts "I didn't quite understand that; try again please."
-      quiz_scales_options
-    end  	
   end
 
   def quiz_scales(type)
