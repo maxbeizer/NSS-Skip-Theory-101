@@ -14,47 +14,47 @@ class Quiz
   @@tests_attempted = 0.0
   @@tests_passed = 0.0
 
-  def self.move_down_the_path(index)
+  def move_down_the_path(index)
     @@path_array.slice!(index)
   end
 
-  def self.display_path_progress
+  def display_path_progress
     puts "You have " + @@path_array.length.to_s + " more steps to take down the path"
   end
 
-  def self.increment_tests_attempted
+  def increment_tests_attempted
     @@tests_attempted += 1
   end
 
-  def self.increment_tests_passed
+  def increment_tests_passed
     @@tests_passed += 1    
   end
 
-  def self.passed_percentage
+  def passed_percentage
     (@@tests_passed / @@tests_attempted) * 100
   end
 
-  def self.print_progress
+  def print_progress
     puts "You have passed " + @@tests_passed.to_i.to_s + " times out of " + @@tests_attempted.to_i.to_s + " tries"
     puts "Your percentage thus far is " + passed_percentage.to_s + "%."
   end
 
-  def self.generate_pass
+  def generate_pass
     increment_tests_passed
     increment_tests_attempted
     print_progress
   end
 
-  def self.generate_fail
+  def generate_fail
     increment_tests_attempted
     print_progress
   end
 
-  def self.clean_gets
+  def clean_gets
     gets.downcase.chomp
   end
 
-  def self.process
+  def process
     print "What would you like to get quizzed on? Chords or Scales?  "
     first_response = clean_gets
     if first_response =~ /^chord/
@@ -69,7 +69,7 @@ class Quiz
     end
   end
 
-  def self.rerun_or_exit(which_part)
+  def rerun_or_exit(which_part)
   	print "Would you like to try some more? Yes or No: "
   	rerun_response = clean_gets
   	if rerun_response =~ /^y/
@@ -77,7 +77,7 @@ class Quiz
       print "Would you like to stay here or return to quiz menu?  "
       stay_or_return_response = clean_gets
       if stay_or_return_response =~ /(stay)|(here)/  
-        Quiz.send(which_part)
+        self.send(which_part)
       elsif stay_or_return_response =~ /(exit)|(^q)/ 
       #exit the program
       else
@@ -88,7 +88,7 @@ class Quiz
     end  
   end
 
-  def self.quiz_chords_options
+  def quiz_chords_options
     print "Which would you like to get quizzed on: major chords or minor chords?  "
     options_response = clean_gets
     if options_response =~ /^major/
@@ -103,7 +103,7 @@ class Quiz
     end
   end
 
-  def self.quiz_chords_major
+  def quiz_chords_major
     quiz_chord_start = @@path_array.sample
     index = @@path_array.index(quiz_chord_start)
     generated_quiz_chord = Chords.new(quiz_chord_start + "maj").generate_chord
@@ -125,8 +125,8 @@ class Quiz
     end
   end
 
-  def self.quiz_chords_minor
-    quiz_chord_start = ALL_NOTES.sample
+  def quiz_chords_minor
+    quiz_chord_start = @@path_array.sample
     index = @@path_array.index(quiz_chord_start)
     generated_quiz_chord = Chords.new(quiz_chord_start + "min").generate_chord
     print "Please enter a " + quiz_chord_start + "min chord (case insensitive):  "
@@ -147,7 +147,7 @@ class Quiz
     end
   end
 
-  def self.quiz_scales_options
+  def quiz_scales_options
     print "Which would you like to get quizzed on: major scales or minor scales?  "
     options_response = clean_gets
     if options_response =~ /^major/
@@ -162,7 +162,7 @@ class Quiz
     end  	
   end
 
-  def self.quiz_scales_major
+  def quiz_scales_major
     quiz_scale_start = ALL_NOTES.sample
     generated_quiz_scale = Scales.new(quiz_scale_start + "maj").generate_scale
     print "Please enter a " + quiz_scale_start + "maj scale (case insensitive):  "
@@ -180,7 +180,7 @@ class Quiz
     end
   end
 
-  def self.quiz_scales_minor
+  def quiz_scales_minor
     quiz_scale_start = ALL_NOTES.sample
     generated_quiz_scale = Scales.new(quiz_scale_start + "min").generate_scale
     print "Please enter a " + quiz_scale_start + "min scale (case insensitive):  "
@@ -197,5 +197,5 @@ class Quiz
       rerun_or_exit(:quiz_scales_options)     
     end
   end
-  Quiz.process
+  Quiz.new().process
 end
