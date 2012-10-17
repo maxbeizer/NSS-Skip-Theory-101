@@ -85,7 +85,7 @@ class Quiz
     user_answer = clean_gets
     puts "You entererd: " + user_answer
     puts "The correct answer was: " + @generated_answer
-    if user_answer.downcase == @generated_answer.downcase
+    if user_answer.downcase.strip == @generated_answer.downcase
       puts "You got it correct. You rock my socks!"
       generate_pass
       move_down_the_path(index)
