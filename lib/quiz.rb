@@ -86,13 +86,13 @@ class Quiz
     puts "You entererd: " + user_answer
     puts "The correct answer was: " + @generated_answer
     if user_answer.downcase.strip == @generated_answer.downcase
-      puts "You got it correct. You rock my socks!"
+      puts "You got it correct. " + CONGRATS.sample
       generate_pass
       move_down_the_path(index)
       display_path_progress
       rerun_or_exit
     else
-      puts "You were so close!"
+      puts "You were so close! " + ENCOURAGEMENT.sample
       generate_fail
       display_path_progress
       rerun_or_exit
