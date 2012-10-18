@@ -62,6 +62,11 @@ class Quiz
     print_progress
   end
 
+  def invalid_response
+    puts "I didn't quite understand your input, grasshopper. Sorry."
+    process
+  end
+
   def clean_gets
     gets.downcase.chomp
   end
@@ -71,7 +76,11 @@ class Quiz
     chords_or_scales = clean_gets
     print "Major or Minor?  "
     major_or_minor = clean_gets[0 , 3] #"maj" or "min"
-    quiz_for(chords_or_scales, major_or_minor)
+    if major_or_minor =~ /(maj|min)/
+      quiz_for(chords_or_scales, major_or_minor)
+    else
+      invalid_response
+    end  
   end
 
   def quiz_for(chords_or_scales, major_or_minor)
@@ -93,8 +102,10 @@ class Quiz
     index = @@path_array.index(start_note)
     if chords_or_scales =~ /^chord/
       quiz_chords(major_or_minor)
-    else
+    elsif chords_or_scales =~ /^scale/
       quiz_scales(major_or_minor)
+    else
+      invalid_response
     end
     user_answer = clean_gets
     puts "You entererd: #{ user_answer }"
