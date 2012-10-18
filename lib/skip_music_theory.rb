@@ -1,12 +1,13 @@
 #! /usr/bin/env ruby
+require 'colorize'
 puts
 
 puts "Welcome to Skip Music Theory 101: your first step down the path to musical
-enlightenment."
+enlightenment.".colorize( :light_green )
 
 puts
 
-puts "This program intends to give you an understanding of Western music theory
+puts "This program intends to give you an understanding of Western Music Theory
 by teaching you about basic chords and scales. We will focus on the major and
 minor chords as well as major and minor scales. " 
 
@@ -26,7 +27,7 @@ minor are represented as 'maj' and 'min' respectively. For clarity they must go
 directly next to the chords they describe: 'Fmaj' is good, 'F maj' is bad.
 Sharps are '#' and flats are 'b' and they similarly must be adjacent to the note
 they modify. Notes in chords and scales must have a space in between them for
-clarity: cmaj is C E G -- not CEG.  "  
+clarity: cmaj is C E G -- not CEG.  ".colorize( :light_magenta )  
 
 puts
 
@@ -36,7 +37,7 @@ learning.rb' or 'ruby quiz.rb' into your console."
 puts
 
 puts "You can start your learning by typing learning or you can begin the quiz
-section and the path to enlightenment by typing quiz."
+section and the path to enlightenment by typing quiz.".colorize( :light_cyan ) 
 
 puts
 

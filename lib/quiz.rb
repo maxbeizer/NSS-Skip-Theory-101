@@ -6,6 +6,7 @@ require_relative "chords_major_sharps"
 require_relative "chords_minor_sharps"
 require_relative "chords_major_flats"
 require_relative "chords_minor_flats"
+require 'colorize'
 
 class Quiz
   @@path_array = SHARPS + FLATS
@@ -108,10 +109,11 @@ class Quiz
       invalid_response
     end
     user_answer = clean_gets
-    puts "You entererd: #{ user_answer }"
-    puts "The correct answer was: #@generated_answer"
+    puts "You entererd: #{ user_answer.colorize( :light_cyan ) }"
+    puts "The correct answer was: #@generated_answer".colorize( :light_magenta )
     if user_answer.downcase.strip == @generated_answer.downcase
       puts "You got it correct. #{ CONGRATS.sample }"
+      puts
       generate_pass
       move_down_the_path(index)
       display_path_progress
