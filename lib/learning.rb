@@ -8,7 +8,7 @@ require_relative "chords_major_flats"
 require_relative "chords_minor_flats"
 
 class Learning
-  def self.process
+  def process
     print "What would you like to learn about? Chords or Scales?  "
     first_response = gets.downcase.chomp!
     if first_response =~ /^chord/
@@ -23,13 +23,13 @@ class Learning
     end
   end
 
-  def self.rerun_or_exit
+  def rerun_or_exit
   	print "Would you like to try some more? Yes or No: "
   	rerun_response = gets.downcase.chomp!
   	process if rerun_response =~ /^y/
   end
 
-  def self.learning_chords
+  def learning_chords
     print "Enter a chord: "
     chord = gets.chomp
     chord_answer = Chords.new(chord).generate_chord
@@ -37,12 +37,12 @@ class Learning
 		rerun_or_exit	
   end
 
-  def self.learning_scales
+  def learning_scales
 		print "Enter a scale: "
 		scale = gets.chomp
 		scale_answer = Scales.new(scale).generate_scale
 		puts scale_answer
 		rerun_or_exit  	
   end
-  process
+  Learning.new().process
 end
