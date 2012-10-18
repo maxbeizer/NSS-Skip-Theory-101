@@ -2,7 +2,8 @@
 <h2>Overview</h2>
 <p>This project is the first "resume" project as part of the RoR module
 of the Nashville Software School. The project is to be written entirely
-in Ruby, using only the Standard Library.</p>
+in Ruby, using only the Standard Library (the "colorize" gem was also allowed/
+added).</p>
 
 <p>The idea behind this particular project is to create a program that
 incorporates basic Western Music theory for educational purposes.The 
@@ -18,7 +19,8 @@ understanding of Ruby.</p>
 </ul>
 
 <h2>Feature Wish List</h2>
-<p>This is a time-sensitive project so there will likely be features that will be left on the wish list.</p>
+<p>This is a time-sensitive project so there will likely be features that will 
+  be left on the wish list.</p>
 <ul>
 <li>Persistent storage of path progress</li>
 <li>GUI via shoes.</li>
@@ -31,7 +33,7 @@ understanding of Ruby.</p>
 
 <h2>How to Install and Use</h2>
 <ol>
-<li>Here will lie instructions on installation and use.</li>
+<li>Download the program and run "ruby skip_theory.rb"</li>
 </ol>
 
 <h2>Dependencies</h2>
@@ -40,7 +42,8 @@ understanding of Ruby.</p>
 </ol>
 
 <h2>Contributions</h2>
-Here shall lie any resources and contributions by outside sources.
+<p>Some elements of the interface were inspired by the Ruby Koans from EdgeCase.
+</p>
 
 <h2>Author Info</h2>
 The project is humbly submitted by NSS student and general
@@ -49,6 +52,7 @@ forgiveness in their hearts...
 
 <h2>Change Log</h2>
 <ul>
+<li>Added skip theory intro and colorize.</li>
 <li>Added learning and quiz</li>
 <li>Added Major/Minor Scales and Chords</li>
 <li>README version 0.1</li>
