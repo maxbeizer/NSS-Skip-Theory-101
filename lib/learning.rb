@@ -25,13 +25,13 @@ class Learning
 
   def rerun_or_exit
   	print "Would you like to try some more? Yes or No: "
-  	rerun_response = gets.downcase.chomp!
+  	rerun_response = gets.downcase.chomp
   	process if rerun_response =~ /^y/
   end
 
   def learning_chords
     print "Enter a chord: "
-    chord = gets.chomp
+    chord = gets.chomp.strip
     chord_answer = Chords.new(chord).generate_chord
     puts chord_answer
 		rerun_or_exit	
@@ -39,7 +39,7 @@ class Learning
 
   def learning_scales
 		print "Enter a scale: "
-		scale = gets.chomp
+		scale = gets.chomp.strip
 		scale_answer = Scales.new(scale).generate_scale
 		puts scale_answer
 		rerun_or_exit  	
