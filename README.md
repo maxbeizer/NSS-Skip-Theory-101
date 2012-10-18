@@ -35,7 +35,6 @@ understanding of Ruby.</p>
 
 <h2>Dependencies</h2>
 <ol>
-<li>Shoesrb?</li>
 <li>Ruby 1.9.3?</li>
 </ol>
 
@@ -49,6 +48,7 @@ forgiveness in their hearts...
 
 <h2>Change Log</h2>
 <ul>
+<li>Added learning and quiz</li>
 <li>Added Major/Minor Scales and Chords</li>
 <li>README version 0.1</li>
 </ul>
