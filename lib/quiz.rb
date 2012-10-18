@@ -21,7 +21,12 @@ class Quiz
   end
 
   def display_path_progress
-    puts "You have #{ path_left } more steps to take down the path -- go on, grasshopper."
+    if @@path_array.length == 46
+      puts ENDTIMES
+      Kernel.exit
+    else
+      puts "You have #{ path_left } more steps to take down the path -- go on, grasshopper."
+    end
   end
 
   def increment_tests_attempted
