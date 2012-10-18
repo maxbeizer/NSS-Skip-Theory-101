@@ -16,8 +16,12 @@ class Quiz
     @@path_array.slice!(index)
   end
 
+  def path_left
+    @@path_array.length.inspect
+  end
+
   def display_path_progress
-    puts "You have " + @@path_array.length.inspect + " more steps to take down the path -- go on, grasshopper."
+    puts "You have #{ path_left } more steps to take down the path -- go on, grasshopper."
   end
 
   def increment_tests_attempted
@@ -29,12 +33,17 @@ class Quiz
   end
 
   def passed_percentage
-    (@@tests_passed / @@tests_attempted) * 100
+    percentage = (@@tests_passed / @@tests_attempted) * 100
+    percentage.inspect
   end
 
   def print_progress
-    puts "You have passed " + @@tests_passed.to_i.inspect + " times out of " + @@tests_attempted.to_i.inspect + " tries."
-    puts "Your percentage thus far is " + passed_percentage.inspect + "%."
+    if @@tests_passed.to_i == 1 
+      puts "You have passed " + @@tests_passed.to_i.inspect + " time in " + @@tests_attempted.to_i.inspect + " tries."
+    else  
+      puts "You have passed " + @@tests_passed.to_i.inspect + " times in " + @@tests_attempted.to_i.inspect + " tries."
+    end
+    puts "Your percentage thus far is #{ passed_percentage }%."
   end
 
   def generate_pass
@@ -83,16 +92,16 @@ class Quiz
       quiz_scales(major_or_minor)
     end
     user_answer = clean_gets
-    puts "You entererd: " + user_answer
-    puts "The correct answer was: " + @generated_answer
+    puts "You entererd: #{ user_answer }"
+    puts "The correct answer was: #@generated_answer"
     if user_answer.downcase.strip == @generated_answer.downcase
-      puts "You got it correct. " + CONGRATS.sample
+      puts "You got it correct. #{ CONGRATS.sample }"
       generate_pass
       move_down_the_path(index)
       display_path_progress
       rerun_or_exit
     else
-      puts "You were so close! " + ENCOURAGEMENT.sample
+      puts "You were so close! #{ ENCOURAGEMENT.sample }"
       generate_fail
       display_path_progress
       rerun_or_exit
@@ -102,13 +111,13 @@ class Quiz
   def quiz_chords(major_or_minor)
     quiz_chord_start = @@path_array.sample
     @generated_answer = Chords.new(quiz_chord_start + major_or_minor).generate_chord
-    print "Please enter a " + quiz_chord_start + major_or_minor + " chord (case insensitive):  "
+    print "Please enter a #{ quiz_chord_start }#{ major_or_minor } chord (case insensitive):  "
   end
 
   def quiz_scales(major_or_minor)
     quiz_scale_start = @@path_array.sample
     @generated_answer = Scales.new(quiz_scale_start + major_or_minor).generate_scale
-    print "Please enter a " + quiz_scale_start + major_or_minor + " scale (case insensitive):  "
+    print "Please enter a #{ quiz_scale_start }#{ major_or_minor } scale (case insensitive):  "
   end
 
   Quiz.new().process
