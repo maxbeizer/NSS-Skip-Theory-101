@@ -27,7 +27,8 @@ minor are represented as 'maj' and 'min' respectively. For clarity they must go
 directly next to the chords they describe: 'Fmaj' is good, 'F maj' is bad.
 Sharps are '#' and flats are 'b' and they similarly must be adjacent to the note
 they modify. Notes in chords and scales must have a space in between them for
-clarity: cmaj is C E G -- not CEG.  ".colorize( :light_magenta )  
+clarity: cmaj is C E G -- not CEG. Lastly, all naturals use sharps and sharps
+use sharps (e.g. cmin = c d# g). Flats use flats".colorize( :light_magenta )
 
 puts
 
