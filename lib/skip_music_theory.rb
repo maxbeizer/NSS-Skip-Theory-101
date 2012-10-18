@@ -1,4 +1,4 @@
-# require_relative 'quiz'
+#! /usr/bin/env ruby
 puts
 
 puts "Welcome to Skip Music Theory 101: your first step down the path to musical
@@ -42,9 +42,11 @@ puts
 
 initial_answer = gets.downcase.chomp
 if initial_answer =~ /learning/
-	#open learning
+	require_relative 'learning' if File.exist?("learning.rb")
+  puts "something went terribly wrong with your learning.rb file."
 elsif initial_answer =~ /quiz/
-	#open quiz
+	require_relative 'quiz' if File.exist?("quiz.rb")
+  puts "something went terribly wrong with your quiz.rb file."
 else
-	#what happens if it's neither		
+	puts "I'm sorry, but that made no sense to me. Please run the program again."		
 end
