@@ -20,6 +20,7 @@ understanding of Ruby.</p>
 <h2>Feature Wish List</h2>
 <p>This is a time-sensitive project so there will likely be features that will be left on the wish list.</p>
 <ul>
+<li>Persistent storage of path progress</li>
 <li>GUI via shoes.</li>
 <li>Other scales options (e.g. harmonic minor).</li>
 <li>Modes.</li>
