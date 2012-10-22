@@ -78,14 +78,10 @@ class Quiz
     print "Major or Minor?  "
     major_or_minor = clean_gets[0 , 3] #"maj" or "min"
     if major_or_minor =~ /(maj|min)/
-      quiz_for(chords_or_scales, major_or_minor)
+      quiz_run(chords_or_scales, major_or_minor)
     else
       invalid_response
     end  
-  end
-
-  def quiz_for(chords_or_scales, major_or_minor)
-    quiz_run(chords_or_scales, major_or_minor)
   end
 
   def rerun_or_exit
