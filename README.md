@@ -38,7 +38,7 @@ understanding of Ruby.</p>
 
 <h2>Dependencies</h2>
 <ol>
-<li>Ruby 1.9.3?</li>
+<li>Ruby 1.9.3</li>
 </ol>
 
 <h2>Contributions</h2>
