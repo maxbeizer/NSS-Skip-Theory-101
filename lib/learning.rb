@@ -14,8 +14,8 @@ class Learning
     if first_response =~ /^chord/
       learning_chords
     elsif first_response =~ /^scale/
-    	learning_scales
-    elsif first_response =~ /(exit)|(^q)/ 
+      learning_scales
+    elsif first_response =~ /(exit)|(^q)/
       #exit the program
     else
       puts "I didn't quite understand that; try again please."
@@ -24,9 +24,9 @@ class Learning
   end
 
   def rerun_or_exit
-  	print "Would you like to try some more? Yes or No: "
-  	rerun_response = gets.downcase.chomp
-  	process if rerun_response =~ /^y/
+    print "Would you like to try some more? Yes or No: "
+    rerun_response = gets.downcase.chomp
+    process if rerun_response =~ /^y/
   end
 
   def learning_chords
@@ -34,15 +34,15 @@ class Learning
     chord = gets.chomp.strip
     chord_answer = Chords.new(chord).generate_chord
     puts chord_answer
-		rerun_or_exit	
+    rerun_or_exit
   end
 
   def learning_scales
-		print "Enter a scale: "
-		scale = gets.chomp.strip
-		scale_answer = Scales.new(scale).generate_scale
-		puts scale_answer
-		rerun_or_exit  	
+    print "Enter a scale: "
+    scale = gets.chomp.strip
+    scale_answer = Scales.new(scale).generate_scale
+    puts scale_answer
+    rerun_or_exit
   end
   Learning.new().process
 end
