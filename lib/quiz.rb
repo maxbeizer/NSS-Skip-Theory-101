@@ -35,7 +35,7 @@ class Quiz
   end
 
   def increment_tests_passed
-    @@tests_passed += 1    
+    @@tests_passed += 1
   end
 
   def passed_percentage
@@ -44,9 +44,9 @@ class Quiz
   end
 
   def print_progress
-    if @@tests_passed.to_i == 1 
+    if @@tests_passed.to_i == 1
       puts "You have passed " + @@tests_passed.to_i.inspect + " time in " + @@tests_attempted.to_i.inspect + " tries."
-    else  
+    else
       puts "You have passed " + @@tests_passed.to_i.inspect + " times in " + @@tests_attempted.to_i.inspect + " tries."
     end
     puts "Your percentage thus far is #{ passed_percentage }%."
@@ -89,9 +89,9 @@ class Quiz
   end
 
   def rerun_or_exit
-  	print "Would you like to try some more? Yes or No: "
-  	rerun_response = clean_gets
-  	if rerun_response =~ /^y/
+    print "Would you like to try some more? Yes or No: "
+    rerun_response = clean_gets
+    if rerun_response =~ /^y/
       process
     else
       #exit
@@ -137,6 +137,5 @@ class Quiz
     @generated_answer = Scales.new(quiz_scale_start + major_or_minor).generate_scale
     print "Please enter a #{ quiz_scale_start }#{ major_or_minor } scale (case insensitive):  "
   end
-
   Quiz.new().process
 end
