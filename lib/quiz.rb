@@ -6,7 +6,7 @@ require_relative "chords_major_sharps"
 require_relative "chords_minor_sharps"
 require_relative "chords_major_flats"
 require_relative "chords_minor_flats"
-require 'colorize'
+
 
 class Quiz
   @@path_array = SHARPS + FLATS
@@ -18,7 +18,7 @@ class Quiz
   end
 
   def path_left
-    @@path_array.length.to_s
+    @@path_array.length.inspect
   end
 
   def display_path_progress
@@ -40,14 +40,14 @@ class Quiz
 
   def passed_percentage
     percentage = (@@tests_passed / @@tests_attempted) * 100
-    percentage.to_s
+    percentage.inspect
   end
 
   def print_progress
     if @@tests_passed.to_i == 1
-      puts "You have passed " + @@tests_passed.to_i.to_s + " time in " + @@tests_attempted.to_i.to_s + " tries."
+      puts "You have passed " + @@tests_passed.to_i.inspect + " time in " + @@tests_attempted.to_i.inspect + " tries."
     else
-      puts "You have passed " + @@tests_passed.to_i.to_s + " times in " + @@tests_attempted.to_i.to_s + " tries."
+      puts "You have passed " + @@tests_passed.to_i.inspect + " times in " + @@tests_attempted.to_i.inspect + " tries."
     end
     puts "Your percentage thus far is #{ passed_percentage }%."
   end
@@ -109,8 +109,8 @@ class Quiz
       invalid_response
     end
     user_answer = clean_gets
-    puts "You entererd: #{ user_answer.colorize( :light_cyan ) }"
-    puts "The correct answer was: #@generated_answer".colorize( :light_magenta )
+    puts "You entererd: #{ user_answer }"
+    puts "The correct answer was: #@generated_answer"
     if user_answer.downcase.strip == @generated_answer.downcase
       puts "You got it correct. #{ CONGRATS.sample }"
       puts
