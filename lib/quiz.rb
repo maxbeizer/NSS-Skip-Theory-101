@@ -69,7 +69,7 @@ class Quiz
   end
 
   def clean_gets
-    gets.downcase.chomp
+    gets.downcase.chomp.strip
   end
 
   def process
