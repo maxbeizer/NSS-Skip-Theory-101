@@ -28,7 +28,7 @@ directly next to the chords they describe: 'Fmaj' is good, 'F maj' is bad.
 Sharps are '#' and flats are 'b' and they similarly must be adjacent to the note
 they modify. Notes in chords and scales must have a space in between them for
 clarity: cmaj is C E G -- not CEG. Lastly, all naturals use sharps and sharps
-use sharps (e.g. cmin = c d# g). Flats use flats".colorize( :light_magenta )
+use sharps (e.g. cmin = c d# g). Flats use flats"
 
 puts
 
@@ -38,7 +38,7 @@ learning.rb' or 'ruby quiz.rb' into your console."
 puts
 
 puts "You can start your learning by typing learning or you can begin the quiz
-section and the path to enlightenment by typing quiz.".colorize( :light_cyan ) 
+section and the path to enlightenment by typing quiz."
 
 puts
 
