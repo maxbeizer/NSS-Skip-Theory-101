@@ -1,9 +1,8 @@
 #! /usr/bin/env ruby
-require 'colorize'
 puts
 
 puts "Welcome to Skip Music Theory 101: your first step down the path to musical
-enlightenment.".colorize( :light_green )
+enlightenment."
 
 puts
 
