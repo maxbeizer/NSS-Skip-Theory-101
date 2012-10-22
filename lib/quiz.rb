@@ -18,7 +18,7 @@ class Quiz
   end
 
   def path_left
-    @@path_array.length.inspect
+    @@path_array.length.to_s
   end
 
   def display_path_progress
@@ -40,14 +40,14 @@ class Quiz
 
   def passed_percentage
     percentage = (@@tests_passed / @@tests_attempted) * 100
-    percentage.inspect
+    percentage.to_s
   end
 
   def print_progress
     if @@tests_passed.to_i == 1
-      puts "You have passed " + @@tests_passed.to_i.inspect + " time in " + @@tests_attempted.to_i.inspect + " tries."
+      puts "You have passed " + @@tests_passed.to_i.to_s + " time in " + @@tests_attempted.to_i.to_s + " tries."
     else
-      puts "You have passed " + @@tests_passed.to_i.inspect + " times in " + @@tests_attempted.to_i.inspect + " tries."
+      puts "You have passed " + @@tests_passed.to_i.to_s + " times in " + @@tests_attempted.to_i.to_s + " tries."
     end
     puts "Your percentage thus far is #{ passed_percentage }%."
   end
