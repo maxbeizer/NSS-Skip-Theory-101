@@ -2,7 +2,7 @@ require_relative 'chords'
 
 class ChordsMinorFlats < Chords
   def start_index
-  	Flats.index(chord_start_position)
+    Flats.index(chord_start_position)
   end
 
   def minor_chord_sharps

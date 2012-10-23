@@ -2,7 +2,7 @@ require_relative 'chords'
 
 class ChordsMinorSharps < Chords
   def start_index
-  	SHARPS.index(chord_start_position)
+    SHARPS.index(chord_start_position)
   end
 
   def minor_chord_sharps
