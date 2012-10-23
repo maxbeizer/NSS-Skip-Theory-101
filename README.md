@@ -2,8 +2,7 @@
 <h2>Overview</h2>
 <p>This project is the first "resume" project as part of the RoR module
 of the Nashville Software School. The project is to be written entirely
-in Ruby, using only the Standard Library (the "colorize" gem was also allowed/
-added).</p>
+in Ruby, using only the Standard Library.</p>
 
 <p>The idea behind this particular project is to create a program that
 incorporates basic Western Music theory for educational purposes.The 
@@ -48,10 +47,11 @@ understanding of Ruby.</p>
 <h2>Author Info</h2>
 The project is humbly submitted by NSS student and general
 ne'er-do-well, Max Beizer. May all his past music theory teachers have
-forgiveness in their hearts... 
+forgiveness in their hearts...
 
 <h2>Change Log</h2>
 <ul>
+<li>Removed colorize gem<li>
 <li>Added skip theory intro and colorize.</li>
 <li>Added learning and quiz</li>
 <li>Added Major/Minor Scales and Chords</li>
