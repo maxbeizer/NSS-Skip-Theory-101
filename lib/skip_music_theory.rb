@@ -8,7 +8,7 @@ puts
 
 puts "This program intends to give you an understanding of Western Music Theory
 by teaching you about basic chords and scales. We will focus on the major and
-minor chords as well as major and minor scales. " 
+minor chords as well as major and minor scales. "
 
 puts
 
@@ -43,11 +43,11 @@ puts
 
 initial_answer = gets.downcase.chomp
 if initial_answer =~ /learning/
-	require_relative 'learning' if File.exist?("learning.rb")
+  require_relative 'learning' if File.exist?("learning.rb")
   puts "something went terribly wrong with your learning.rb file."
 elsif initial_answer =~ /quiz/
-	require_relative 'quiz' if File.exist?("quiz.rb")
+  require_relative 'quiz' if File.exist?("quiz.rb")
   puts "something went terribly wrong with your quiz.rb file."
 else
-	puts "I'm sorry, but that made no sense to me. Please run the program again."		
+  puts "I'm sorry, but that made no sense to me. Please run the program again."
 end

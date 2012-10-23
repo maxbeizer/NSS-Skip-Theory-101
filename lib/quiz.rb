@@ -81,7 +81,7 @@ class Quiz
       quiz_run(chords_or_scales, major_or_minor)
     else
       invalid_response
-    end  
+    end
   end
 
   def rerun_or_exit
