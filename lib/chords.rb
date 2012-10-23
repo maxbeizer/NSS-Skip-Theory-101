@@ -4,9 +4,9 @@ require_relative 'chord_factory'
 
 class Chords
   attr_reader :chord_name
-  
+
   def initialize(chord_name)
-  	@chord_name = chord_name.downcase
+    @chord_name = chord_name.downcase
   end
 
   def chord_start_position
